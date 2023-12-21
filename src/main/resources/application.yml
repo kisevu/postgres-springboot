@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5430/demo_db
+    url: jdbc:postgresql://judy:5432/demo_db
     username: username
     password: ameda
     driver-class-name: org.postgresql.Driver
@@ -17,3 +17,6 @@ server:
   port: 8282
   application:
     name: spring-boot-postgresql
+
+#When container to container are communicating, then it's crucial to have container-name as host
+#i.e jdbc:postgresql://judy:5430/demo_db
