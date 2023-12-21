@@ -1,0 +1,31 @@
+services:
+  postgres:
+    container_name: judy
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: ameda
+      POSTGRES_DB: demo_db
+    ports:
+      - "5430:5432"
+    volumes:
+      - postgres:/var/lib/postgres/data
+    networks:
+      - spring-boot-psql-net
+  spring-boot-app:
+    container_name: boot-psql
+    image: spring/psql
+    ports:
+      - 8282:8282
+    networks:
+      - spring-boot-psql-net
+    depends_on:
+      - postgres
+
+
+volumes:
+  postgres:
+networks:
+  spring-boot-psql-net:
+    driver: bridge
+
