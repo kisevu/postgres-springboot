@@ -16,7 +16,7 @@ services:
     container_name: boot-psql
     image: spring/psql
     ports:
-      - 8282:8282
+      - 8181:8181
     networks:
       - spring-boot-psql-net
     depends_on:
